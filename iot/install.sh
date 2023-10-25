@@ -26,13 +26,17 @@ chmod ugo+x /usr/bin/minirps
 mkdir -p /opt/hardware
 
 wget https://raw.githubusercontent.com/marcodpt/config/main/iot/config.toml
-mv config.toml /opt/hardware/toledo
-
-wget https://raw.githubusercontent.com/marcodpt/config/main/iot/rc.local
-mv "rc.local" "/etc/rc.local"
+mv config.toml /opt/hardware/
 
 wget --no-check-certificate https://192.168.0.5/index.php/download/iot_cert
 mv iot_cert /opt/hardware/ssl.crt
 
 wget --no-check-certificate https://192.168.0.5/index.php/download/iot_key
 mv iot_key /opt/hardware/ssl.key
+
+wget https://raw.githubusercontent.com/marcodpt/config/main/iot/rc.local
+mv "rc.local" "/etc/rc.local"
+
+rawprinter --vendor-id 0x0a5f --device-id 0x000a &
+toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 &
+minirps -f /opt/hardware/config.toml &
