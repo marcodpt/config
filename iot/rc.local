@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+rawprinter --vendor-id 0x0a5f --device-id 0x000a
+toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01
+minirps -f /opt/hardware/config.toml
+
+apt update -y
+apt upgrade -y
+apt autoremove -y
+exit 0
