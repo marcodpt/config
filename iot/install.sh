@@ -20,7 +20,7 @@ mv rawprinter-x86_64-linux /usr/bin/rawprinter
 chmod ugo+x /usr/bin/rawprinter
 
 wget https://github.com/marcodpt/minirps/releases/download/0.1.1/minirps-x86_64-unknown-linux-musl
-mv minirps-x86_64-unknown-linux-musl /usr/bin/toledo
+mv minirps-x86_64-unknown-linux-musl /usr/bin/minirps
 chmod ugo+x /usr/bin/minirps
 
 mkdir -p /opt/hardware
