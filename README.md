@@ -22,3 +22,11 @@ máquinas.
 impressora.
  - `rc.local` é usado por esse script para iniciar o servidor ao ser ligado.
  - `config.toml` são as configurações do servidor.
+
+## marco
+Minhas configurações pessoais
+ - `install.sh` instala os pacotes que uso para trabalhar
+ - `config.sh` configura minhas preferências
+ - `bashrc` coloca o `vim` como editor default e sempre usa `tmux` no terminal 
+ - `vimrc` são minhas configurações do `vim`
+ - `tmux.conf` são minhas configurações do `tmux`

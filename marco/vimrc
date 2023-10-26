@@ -1,0 +1,49 @@
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set clipboard=unnamedplus
+set number
+set relativenumber
+set foldmethod=indent
+set foldlevel=99
+set hlsearch
+set t_Co=256
+set background=dark
+set autoread
+set sessionoptions-=buffers
+set guifont=Monospace\ 18
+set directory=$HOME/.vim/swapfiles/
+set colorcolumn=80
+
+syntax enable
+
+call plug#begin()
+    Plug 'junegunn/seoul256.vim'
+    Plug 'tpope/vim-surround'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'mhinz/vim-startify'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'alvan/vim-closetag'
+    Plug 'tpope/vim-fugitive'
+    Plug 'scrooloose/syntastic'
+    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'pangloss/vim-javascript'
+    Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'cespare/vim-toml'
+    Plug 'samueljoli/hurl.nvim'
+call plug#end()
+
+let g:omni_sql_no_default_maps = 1
+let g:startify_session_persistence = 1
+let g:startify_enable_unsafe = 1
+let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks'] 
+let g:seoul256_background = 234
+let g:closetag_filenames = "*.htm,*.html,*.xhtml,*.phtml"
+let g:airline_theme='zenburn'
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
+
+colorscheme seoul256
