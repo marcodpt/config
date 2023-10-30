@@ -8,10 +8,8 @@ fi
 apt update -y
 apt upgrade -y
 apt autoremove -y
-# apt install pkg-config -y
-# apt install libudev-dev -y
 
-wget https://github.com/marcodpt/toledo/releases/download/0.1.0/toledo-x86_64-unknown-linux-musl
+wget https://github.com/marcodpt/toledo/releases/download/0.1.1/toledo-x86_64-unknown-linux-musl
 mv toledo-x86_64-unknown-linux-musl /usr/bin/toledo
 chmod ugo+x /usr/bin/toledo
 
@@ -36,6 +34,7 @@ mv iot_key /opt/iot/ssl.key
 
 wget https://raw.githubusercontent.com/marcodpt/config/main/iot/rc.local
 mv "rc.local" "/etc/rc.local"
+chmod ugo+x "/etc/rc.local"
 
 rawprinter --vendor-id 0x0a5f --device-id 0x000a &
 toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 &
