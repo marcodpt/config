@@ -23,7 +23,10 @@ body = """{{vars.callback}} ({%
   Errno: 1,
   Error: 'Erro ao imprimir código de barras!'
 }{% endif %})"""
-headers = { Content-Type = "text/javascript" }
+headers = {
+  Content-Type = "text/javascript",
+  Cache-Control = "no-cache, no-store, must-revalidate"
+}
 
 [[routes]]
 method = "GET"
@@ -46,4 +49,7 @@ body = """{{vars.callback}} ({%
   Error: '{{data.toledo.body}}',
   Peso: 0
 }{% endif %})"""
-headers = { Content-Type = "text/javascript" }
+headers = {
+  Content-Type = "text/javascript",
+  Cache-Control = "no-cache, no-store, must-revalidate"
+}
