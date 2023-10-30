@@ -2,7 +2,7 @@
 
 rawprinter --vendor-id 0x0a5f --device-id 0x000a &
 toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 &
-minirps -f /opt/hardware/config.toml &
+minirps -f /opt/iot/config.toml &
 
 apt update -y
 apt upgrade -y
