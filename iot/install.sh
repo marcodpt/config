@@ -9,8 +9,8 @@ apt update -y
 apt upgrade -y
 apt autoremove -y
 
-wget https://github.com/marcodpt/toledo/releases/download/0.1.1/toledo-x86_64-unknown-linux-musl
-mv toledo-x86_64-unknown-linux-musl /usr/bin/toledo
+wget https://github.com/marcodpt/toledo/releases/download/0.1.1/toledo
+mv toledo /usr/bin/toledo
 chmod ugo+x /usr/bin/toledo
 
 wget https://github.com/marcodpt/rawprinter/releases/download/0.1.2/rawprinter-x86_64-linux
