@@ -2,6 +2,17 @@
 
 Meus arquivos de configurações e scripts
 
+## Rodar scripts sem baixar utilizando wget
+wget is installed by default on ubuntu
+
+-O: stands for output
+
+-: stands for stdio
+
+```
+wget -O - https://raw.githubusercontent.com/marcodpt/config/path/to/script.sh | bash
+```
+
 ## Rodar scripts em máquinas remotas
 Como usuário
 ```
