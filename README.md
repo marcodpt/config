@@ -5,12 +5,12 @@ Meus arquivos de configurações e scripts
 ## iot
 Install 
 ```
-sudo wget -O - https://raw.githubusercontent.com/marcodpt/main/config/install.sh | bash
+sudo wget -O - https://raw.githubusercontent.com/marcodpt/config/main/install.sh | bash
 ```
 
 Remove
 ```
-sudo wget -O - https://raw.githubusercontent.com/marcodpt/main/config/remove.sh | bash
+sudo wget -O - https://raw.githubusercontent.com/marcodpt/config/main/remove.sh | bash
 ```
 
  - `install.sh` é um script para inicializar um terminal com balança e impressora.
