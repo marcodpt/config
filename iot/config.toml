@@ -14,19 +14,20 @@ url = "http://localhost:8001"
 body = "{{vars.data}}"
 
 [routes.response]
-body = """{{vars.callback}} ({%
+body = '''
+{{vars.callback}} ({%
   if data.rawprinter.status == 200
 %}{
   Errno: 0,
-  Error: ''
+  Error: ""
 }{% else %}{
   Errno: 1,
-  Error: 'Erro ao imprimir código de barras!'
-}{% endif %})"""
-headers = {
-  Content-Type = "text/javascript",
-  Cache-Control = "no-cache, no-store, must-revalidate"
-}
+  Error: "Erro ao imprimir código de barras!"
+}{% endif %})'''
+
+[routes.response.headers]
+Content-Type = "text/javascript"
+Cache-Control = "no-cache, no-store, must-revalidate"
 
 [[routes]]
 method = "GET"
@@ -38,18 +39,19 @@ method = "GET"
 url = "http://localhost:8002"
 
 [routes.response]
-body = """{{vars.callback}} ({%
+body = '''
+{{vars.callback}} ({%
   if data.toledo.status == 200
 %}{
   Errno: 0,
-  Error: '',
+  Error: "",
   Peso: {{data.toledo.json.weight}}
 }{% else %}{
   Errno: 2,
-  Error: '{{data.toledo.body}}',
+  Error: "{{data.toledo.body}}",
   Peso: 0
-}{% endif %})"""
-headers = {
-  Content-Type = "text/javascript",
-  Cache-Control = "no-cache, no-store, must-revalidate"
-}
+}{% endif %})'''
+
+[routes.response.headers]
+Content-Type = "text/javascript"
+Cache-Control = "no-cache, no-store, must-revalidate"
