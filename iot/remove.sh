@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-rm -f /usr/bin/toledo
+rm -f /usr/bin/serialscale
 rm -f /usr/bin/rawprinter
 rm -f /usr/bin/minirps
 rm -f /etc/rc.local

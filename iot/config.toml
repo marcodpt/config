@@ -34,21 +34,21 @@ method = "GET"
 path = "/toledo"
 
 [[routes.requests]]
-name = "toledo"
+name = "scale"
 method = "GET"
 url = "http://localhost:8002"
 
 [routes.response]
 body = '''
 {{vars.callback}} ({%
-  if data.toledo.status == 200
+  if data.scale.status == 200
 %}{
   Errno: 0,
   Error: "",
-  Peso: {{data.toledo.json.weight}}
+  Peso: {{data.scale.json.weight}}
 }{% else %}{
   Errno: 2,
-  Error: "{{data.toledo.body}}",
+  Error: "{{data.scale.body}}",
   Peso: 0
 }{% endif %})'''
 

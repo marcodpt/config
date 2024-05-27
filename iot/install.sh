@@ -9,9 +9,9 @@ apt update -y
 apt upgrade -y
 apt autoremove -y
 
-wget https://github.com/marcodpt/toledo/releases/download/0.1.1/toledo
-mv toledo /usr/bin/toledo
-chmod ugo+x /usr/bin/toledo
+wget https://github.com/marcodpt/serialscale/releases/download/0.1.2/serialscale-x86_64-unknown-linux-musl
+mv serialscale-x86_64-unknown-linux-musl /usr/bin/serialscale
+chmod ugo+x /usr/bin/serialscale
 
 wget https://github.com/marcodpt/rawprinter/releases/download/0.1.2/rawprinter-x86_64-linux
 mv rawprinter-x86_64-linux /usr/bin/rawprinter
@@ -37,5 +37,5 @@ mv "rc.local" "/etc/rc.local"
 chmod ugo+x "/etc/rc.local"
 
 rawprinter --vendor-id 0x0a5f --device-id 0x000a &
-toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 &
+serialscale /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 &
 minirps -f /opt/iot/config.toml &
