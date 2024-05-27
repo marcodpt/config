@@ -43,6 +43,8 @@ if [ ! -f /usr/local/bin/composer ]; then
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 fi
 
+chmod o+wx /home/ubuntu
+
 # Add at the end of file: /etc/apache2/apache2.conf
 #
 # ServerName budi
