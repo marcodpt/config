@@ -87,9 +87,9 @@ else
   FLAGS="$FLAGS --column-statistics=0"
 
   FILE="$DIR/${DB}__$DATE.sql"
-  echo "mysqldump $FLAGS $DB > $FILE"
+  mysqldump $FLAGS $DB > $FILE
 fi
 
 if [[ $COMPRESS -ne 0 ]]; then
-  echo "gzip $FILE"
+  gzip $FILE
 fi
