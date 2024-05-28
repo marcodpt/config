@@ -71,7 +71,7 @@ if [[ $CONN == "" ]]; then
     exit 1
   fi
   FILE=$DIR/$(basename $DB)__$DATE
-  echo "sqlite3 $DB \".backup '$FILE'\""
+  sqlite3 $DB ".backup '$FILE'"
 else
   if [[ ! -f $CONN ]]; then
     usage
