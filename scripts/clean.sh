@@ -13,8 +13,8 @@ usage() {
   echo "  <NAME> The beginning of the name of the backup files. Whereas the rest is used to differentiate the files and the name is in chronological order."
   echo ""
   echo "Options:"
-  echo "-d, --dir <DIRECTORY>       The directory location of backup files [default: .]"
-  echo "-m, --max <MAX>             The maximum number of files to keep [default: 1]"
+  echo "-d, --dir <DIRECTORY>       The directory location of backup files [default: $DIR]"
+  echo "-m, --max <MAX>             The maximum number of files to keep [default: $MAX]"
 }
 
 while [[ $# -gt 0 ]]; do
