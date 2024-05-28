@@ -70,7 +70,7 @@ if [[ $CONN == "" ]]; then
     usage
     exit 1
   fi
-  FILE=$DIR/$(basename $DB)__$DATE
+  FILE="$DIR/$(basename $DB)__$DATE"
   sqlite3 $DB ".backup '$FILE'"
 else
   if [[ ! -f $CONN ]]; then
@@ -86,7 +86,7 @@ else
   FLAGS="$FLAGS --max_allowed_packet=512M"
   FLAGS="$FLAGS --column-statistics=0"
 
-  FILE=$DIR/$DB__$DATE.sql
+  FILE="$DIR/$DB__$DATE.sql"
   mysqldump $FLAGS $DB > $FILE
 fi
 
