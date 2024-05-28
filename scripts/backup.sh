@@ -86,10 +86,10 @@ else
   FLAGS="$FLAGS --max_allowed_packet=512M"
   FLAGS="$FLAGS --column-statistics=0"
 
-  FILE="$DIR/$DB__$DATE.sql"
-  mysqldump $FLAGS $DB > $FILE
+  FILE="$DIR/${DB}__$DATE.sql"
+  echo "mysqldump $FLAGS $DB > $FILE"
 fi
 
 if [[ $COMPRESS -ne 0 ]]; then
-  gzip $FILE
+  echo "gzip $FILE"
 fi
