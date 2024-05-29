@@ -3,7 +3,7 @@
 echo "***** STARTUP *****" > "/etc/iot/startup.log"
 
 rawprinter --vendor-id 0x0a5f --device-id 0x000a >> "/etc/iot/startup.log"
-toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 >> "/etc/iot/startup.log"
+serialscale /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 >> "/etc/iot/startup.log"
 minirps -f /etc/iot/config.toml >> "/etc/iot/startup.log"
 
 apt update >> "/etc/iot/startup.log"
