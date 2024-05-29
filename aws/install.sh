@@ -61,6 +61,9 @@ chmod o+wx /home/ubuntu
 
 # echo "<?php phpinfo(); ?>" > /var/www/html/info.php
 
+# TIMEZONE settings
+# dpkg-reconfigure tzdata
+
 # certbot --apache
 # 0 2 * * 6 certbot renew
 # 0 0 * * 0 (apt update && apt upgrade -y && apt autoremove -y && reboot) > /home/ubuntu/update.log
