@@ -64,6 +64,9 @@ chmod o+wx /home/ubuntu
 # TIMEZONE settings
 # dpkg-reconfigure tzdata
 
+# Every day 2 am
+# 0 2 * * * /home/ubuntu/config
+
 # certbot --apache
 # 0 2 * * 6 certbot renew
 # 0 0 * * 0 (apt update && apt upgrade -y && apt autoremove -y && reboot) > /home/ubuntu/update.log
