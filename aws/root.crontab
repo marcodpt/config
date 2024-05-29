@@ -1,4 +1,4 @@
 # At 02:00
-0 2 * * * /home/ubuntu/config/aws/daily.sh
+0 2 * * * /home/ubuntu/config/aws/daily.sh [databases]
 # At 03:00 on Saturday.
-0 3 * * 6 /home/ubuntu/config/aws/update.sh
+0 3 * * 6 /home/ubuntu/config/aws/update.sh [databases]
