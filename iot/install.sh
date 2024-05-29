@@ -56,3 +56,4 @@ fi
 
 IP=$(hostname -I)
 echo "IP LOCAL: $IP"
+echo "LOGS: /etc/iot/startup.log"

@@ -8,15 +8,9 @@ Install
 wget -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/install.sh | sudo bash
 ```
 
-Remove
-```
-wget -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/remove.sh | sudo bash
-```
-
  - `install.sh` é um script para inicializar um terminal com balança e impressora.
  - `rc.local` é usado por esse script para iniciar o servidor ao ser ligado.
  - `config.toml` são as configurações do servidor.
- - `remove.sh` é um script para apagar a instalação feita
 
 ## marco
 Minhas configurações pessoais
