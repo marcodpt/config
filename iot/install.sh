@@ -46,14 +46,20 @@ if [[ ! -e /etc/iot/ssl.key ]]; then
   mv iot_key /etc/iot/ssl.key
 fi
 
+if [[ ! -e /etc/iot/startup.sh ]]; then
+  wget https://raw.githubusercontent.com/marcodpt/config/main/iot/startup.sh
+  mv "startup.sh" "/etc/iot/startup.sh"
+  chmod ugo+x "/etc/iot/startup.sh"
+fi
+
 if [[ ! -e /etc/rc.local ]]; then
   wget https://raw.githubusercontent.com/marcodpt/config/main/iot/rc.local
   mv "rc.local" "/etc/rc.local"
   chmod ugo+x "/etc/rc.local"
 fi
 
-/etc/rc.local &
+/etc/iot/startup.sh
 
 IP=$(hostname -I)
-echo "IP LOCAL: $IP"
-echo "LOGS: /etc/iot/startup.log"
+echo "IP LOCAL: ssh {user}@$IP"
+echo "IOT LOGS REBOOT: cat /etc/iot/startup.log"
