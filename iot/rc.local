@@ -2,11 +2,11 @@
 
 echo "***** STARTUP *****" > "/etc/iot/startup.log"
 
-rawprinter --vendor-id 0x0a5f --device-id 0x000a >> "/etc/iot/startup.log" 2>&1
-serialscale /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 >> "/etc/iot/startup.log" 2>&1
-minirps -f /etc/iot/config.toml >> "/etc/iot/startup.log" 2>&1
+rawprinter --vendor-id 0x0a5f --device-id 0x000a >> "/etc/iot/startup.log" 2>&1 || true
+serialscale /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 >> "/etc/iot/startup.log" 2>&1 || true
+minirps -f /etc/iot/config.toml >> "/etc/iot/startup.log" 2>&1 || true
 
-apt update >> "/etc/iot/startup.log" 2>&1
-apt upgrade -y >> "/etc/iot/startup.log" 2>&1
-apt autoremove -y >> "/etc/iot/startup.log" 2>&1
+apt update >> "/etc/iot/startup.log" 2>&1 || true
+apt upgrade -y >> "/etc/iot/startup.log" 2>&1 || true
+apt autoremove -y >> "/etc/iot/startup.log" 2>&1 || true
 exit 0
