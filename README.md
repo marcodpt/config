@@ -5,7 +5,7 @@ Meus arquivos de configurações e scripts
 ## iot
 Install 
 ```
-wget -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/install.sh | sudo bash
+wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/install.sh | sudo bash
 ```
 
  - `install.sh` é um script para inicializar um terminal com balança e impressora.
