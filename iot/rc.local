@@ -1,10 +1,12 @@
 #!/bin/sh -e
 
-rawprinter --vendor-id 0x0a5f --device-id 0x000a &
-toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 &
-minirps -f /opt/iot/config.toml &
+echo "***** STARTUP *****" > "/etc/iot/startup.log"
 
-apt update -y
-apt upgrade -y
-apt autoremove -y
+rawprinter --vendor-id 0x0a5f --device-id 0x000a >> "/etc/iot/startup.log"
+toledo /dev/ttyUSB0 --lang pt --unit Kg --min-weight 0.01 >> "/etc/iot/startup.log"
+minirps -f /etc/iot/config.toml >> "/etc/iot/startup.log"
+
+apt update >> "/etc/iot/startup.log"
+apt upgrade -y >> "/etc/iot/startup.log"
+apt autoremove -y >> "/etc/iot/startup.log"
 exit 0

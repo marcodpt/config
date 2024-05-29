@@ -18,10 +18,6 @@ wget -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/remove.sh |
  - `config.toml` são as configurações do servidor.
  - `remove.sh` é um script para apagar a instalação feita
 
-## ssh
- - `install.sh` é um script para configurar o acesso remoto via ssh a outras
-máquinas.
-
 ## marco
 Minhas configurações pessoais
  - `install.sh` instala os pacotes que uso para trabalhar
