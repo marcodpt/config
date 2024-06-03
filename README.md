@@ -1,32 +1,30 @@
-# config
+# Config
 
-Meus arquivos de configurações e scripts
+My settings files and automation scripts.
 
 ## iot
-Install 
+Installation
+
 ```
 wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/install.sh | sudo bash
 ```
 
- - `install.sh` é um script para inicializar um terminal com balança e impressora.
- - `rc.local` é usado por esse script para iniciar o servidor ao ser ligado.
- - `config.toml` são as configurações do servidor.
+ - `install.sh` is a script to initialize a terminal with scale and printer.
+ - `rc.local` is used by this script to start the server when powered on.
+ - `startup.sh` restarts servers and is used by `install.sh` and `rc.local`.
+ - `config.toml` are the server settings.
+
+Restart server
+
+```
+wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/startup.sh | sudo bash
+```
 
 ## marco
-Minhas configurações pessoais
- - `install.sh` instala os pacotes que uso para trabalhar
- - `config.sh` configura minhas preferências
- - `bashrc` coloca o `vim` como editor default e sempre usa `tmux` no terminal 
- - `vimrc` são minhas configurações do `vim`
- - `tmux.conf` são minhas configurações do `tmux`
+My personal settings.
 
-## Rodar scripts em máquinas remotas
-Como usuário
-```
-ssh {user}@{ip} 'bash -s' < script.sh
-```
-
-Como root
-```
-ssh {user}@{ip} 'echo "{rootpass}" | sudo -Sv && bash -s' < script.sh
-```
+ - `install.sh` install the packages I use to work.
+ - `config.sh` set my preferences.
+ - `bashrc` put `vim` as the default editor and always use `tmux` in the terminal.
+ - `vimrc` these are my `vim` settings.
+ - `tmux.conf` these are my `tmux` settings.
