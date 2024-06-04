@@ -1,0 +1,4 @@
+# At 05:00 UTC
+0 5 * * * /home/ubuntu/config/server/daily.sh [databases]
+# At 03:00 on Saturday.
+0 6 * * 6 /home/ubuntu/config/server/update.sh
