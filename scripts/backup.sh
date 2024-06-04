@@ -98,4 +98,4 @@ if [[ $COMPRESS -ne 0 ]]; then
   LATEST="$LATEST.gz"
 fi
 
-ln -sf $LATEST $FILE
+ln -sf $FILE $LATEST
