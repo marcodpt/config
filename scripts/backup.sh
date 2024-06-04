@@ -71,6 +71,7 @@ if [[ $CONN == "" ]]; then
     exit 1
   fi
   FILE="$DIR/$(basename $DB)__$DATE"
+  LATEST="$DIR/$(basename $DB)__latest"
   sqlite3 $DB ".backup '$FILE'"
 else
   if [[ ! -f $CONN ]]; then
@@ -87,9 +88,14 @@ else
   FLAGS="$FLAGS --column-statistics=0"
 
   FILE="$DIR/${DB}__$DATE.sql"
+  LATEST="$DIR/${DB}__latest.sql"
   mysqldump $FLAGS $DB > $FILE
 fi
 
 if [[ $COMPRESS -ne 0 ]]; then
   gzip $FILE
+  FILE="$FILE.gz"
+  LATEST="$LATEST.gz"
 fi
+
+ln -sf $LATEST $FILE
