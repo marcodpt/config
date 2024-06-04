@@ -7,5 +7,5 @@ git --work-tree=/home/ubuntu/config/ --git-dir=/home/ubuntu/config/.git/ pull >>
 for DB in "$@"
 do
   /home/ubuntu/config/scripts/backup.sh -c -d /home/ubuntu/backup $DB >> /home/ubuntu/daily.log
-  /home/ubuntu/config/scripts/clean.sh -m 35 -d /home/ubuntu/backup $DB >> /home/ubuntu/daily.log
+  /home/ubuntu/config/scripts/clean.sh -m 35 -d /home/ubuntu/backup $(basename $DB) >> /home/ubuntu/daily.log
 done
