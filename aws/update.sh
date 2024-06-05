@@ -5,7 +5,7 @@ echo "***** UPDATE *****" > /home/ubuntu/update.log
 for DB in "$@"
 do
   /home/ubuntu/config/scripts/backup.sh -d /home/ubuntu/backup $DB /home/ubuntu/backup/.mysql >> /home/ubuntu/daily.log
-  /home/ubuntu/config/scripts/clean.sh -m 1 -d /home/ubuntu/backup $DB >> /home/ubuntu/daily.log
+  /home/ubuntu/config/scripts/clean.sh -m 2 -d /home/ubuntu/backup $DB >> /home/ubuntu/daily.log
 done
 
 apt update >> /home/ubuntu/update.log
