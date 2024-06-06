@@ -1,15 +1,16 @@
 #!/bin/bash
 
-echo "***** UPDATE *****" > /home/ubuntu/update.log
+echo "***** UPDATE *****"
 
 for DB in "$@"
 do
-  /home/ubuntu/config/scripts/backup.sh -c -d /home/ubuntu/backup $DB /home/ubuntu/backup/.mysql >> /home/ubuntu/daily.log
-  /home/ubuntu/config/scripts/clean.sh -m 2 -d /home/ubuntu/backup $DB >> /home/ubuntu/daily.log
+  /home/ubuntu/config/scripts/backup.sh -c -d /home/ubuntu/backup $DB /home/ubuntu/backup/.mysql
+  /home/ubuntu/config/scripts/clean.sh -m 2 -d /home/ubuntu/backup $DB
 done
 
-apt update >> /home/ubuntu/update.log
-apt upgrade -y >> /home/ubuntu/update.log
-apt autoremove -y >> /home/ubuntu/update.log
+certbot renew
+apt update
+apt upgrade -y
+apt autoremove -y
 
 reboot

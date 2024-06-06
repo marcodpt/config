@@ -1,11 +1,11 @@
 #!/bin/bash
 
-echo "***** DAILY *****" > /home/ubuntu/daily.log
+echo "***** DAILY *****"
 
-git --work-tree=/home/ubuntu/config/ --git-dir=/home/ubuntu/config/.git/ pull >> /home/ubuntu/daily.log
+git --work-tree=/home/ubuntu/config/ --git-dir=/home/ubuntu/config/.git/ pull
 
 for DB in "$@"
 do
-  /home/ubuntu/config/scripts/backup.sh -c -d /home/ubuntu/backup $DB /home/ubuntu/backup/.mysql >> /home/ubuntu/daily.log
-  /home/ubuntu/config/scripts/clean.sh -m 8 -d /home/ubuntu/backup $DB >> /home/ubuntu/daily.log
+  /home/ubuntu/config/scripts/backup.sh -c -d /home/ubuntu/backup $DB /home/ubuntu/backup/.mysql
+  /home/ubuntu/config/scripts/clean.sh -m 8 -d /home/ubuntu/backup $DB
 done
