@@ -17,7 +17,7 @@ wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/install.
 Restart server
 
 ```
-wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/iot/startup.sh | sudo bash
+sudo /etc/iot/startup.sh
 ```
 
 ## marco

@@ -3,6 +3,7 @@
 apt update -y
 apt upgrade -y
 apt autoremove -y
+apt install net-tools -y
 apt install openssh-server -y
 apt install chromium-browser -y
 
