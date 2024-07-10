@@ -24,6 +24,7 @@ body = '''
   Errno: 1,
   Error: "Erro ao imprimir código de barras!"
 }{% endif %})'''
+status = "200"
 
 [routes.response.headers]
 Content-Type = "text/javascript"
@@ -47,10 +48,11 @@ body = '''
   Error: "",
   Peso: {{data.scale.json.weight}}
 }{% else %}{
-  Errno: 2,
+  Errno: 1,
   Error: "{{data.scale.body}}",
   Peso: 0
 }{% endif %})'''
+status = "200"
 
 [routes.response.headers]
 Content-Type = "text/javascript"
