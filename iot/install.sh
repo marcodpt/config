@@ -18,7 +18,7 @@ wget https://github.com/marcodpt/serialscale/releases/download/0.1.2/serialscale
 mv serialscale-x86_64-unknown-linux-musl /usr/bin/serialscale
 chmod ugo+x /usr/bin/serialscale
 
-wget https://github.com/marcodpt/rawprinter/releases/download/0.1.2/rawprinter-x86_64-linux
+wget https://github.com/marcodpt/rawprinter/releases/download/0.1.3/rawprinter-x86_64-linux
 mv rawprinter-x86_64-linux /usr/bin/rawprinter
 chmod ugo+x /usr/bin/rawprinter
 
