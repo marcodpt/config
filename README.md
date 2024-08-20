@@ -25,6 +25,9 @@ My personal settings.
 
 ```
 wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/install.sh | sudo bash
+```
+
+```
 wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/config.sh | bash
 ```
 
