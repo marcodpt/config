@@ -47,4 +47,4 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-vim -f +PlugInstall +PlugUpdate +PlugClean! +qall
+vim +'PlugInstall --sync' +'PlugUpdate --sync' +'PlugClean! --sync' +qall
