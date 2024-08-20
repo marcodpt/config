@@ -18,11 +18,22 @@ git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
 git config --global push.default simple
 
+#PASS
+STORE="~/.password-store"
+if [ ! -d $STORE ]; then
+  git clone git@gitlab.com:marcodpt/pass.git $STORE
+fi
+
 #RUST
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+if [ ! -d ~/.rustup ]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
 #DENO
-curl -fsSL https://deno.land/install.sh | sh
+if [ ! -d ~/.deno ]; then
+  curl -fsSL https://deno.land/install.sh | sh
+  echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.bashrc
+fi
 
 #VIM
 wget -q -O ~/.vimrc \
