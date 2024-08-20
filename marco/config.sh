@@ -31,7 +31,7 @@ sync () {
   else
     FOLDER=$3
   fi
-  FOLDER=$HOST/$FOLDER
+  FOLDER=$HOME/$FOLDER
 
   echo "******* $HOST@$1 $FOLDER *********"
 
