@@ -31,11 +31,12 @@ sync () {
   else
     FOLDER=$3
   fi
+  FOLDER=$HOST/$FOLDER
 
   echo "******* $HOST@$1 $FOLDER *********"
 
   if [ ! -d $FOLDER ]; then
-    git clone git@$HOST.com:marcodpt/$1.git $HOME/$FOLDER
+    git clone git@$HOST.com:marcodpt/$1.git $FOLDER
   else
     cd $FOLDER && git pull
   fi
