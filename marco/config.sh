@@ -20,8 +20,17 @@ git config --global push.default simple
 
 #PROJECTS
 sync () {
-  HOST=${2:=github}
-  FOLDER=${3:=Desktop/$1}
+  if [ -z $2 ]; then
+    HOST=github
+  else
+    HOST=$2
+  fi
+
+  if [ -z $3 ]; then
+    FOLDER=Desktop/$1
+  else
+    FOLDER=$3
+  fi
 
   echo "******* $HOST@$1 $FOLDER *********"
 
