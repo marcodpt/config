@@ -19,7 +19,7 @@ git config --global user.name "Marco Di Pillo Tomic"
 git config --global push.default simple
 
 #PASS
-STORE="~/.password-store"
+STORE="$HOME/.password-store"
 if [ ! -d $STORE ]; then
   git clone git@gitlab.com:marcodpt/pass.git $STORE
 fi
