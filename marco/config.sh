@@ -20,10 +20,10 @@ git config --global push.default simple
 
 #PROJECTS
 sync () {
-  if [ $2 == "" ]; then
+  if [[ ! $2 ]]; then
     2="github"
   fi
-  if [ $3 == "" ]; then
+  if [[ ! $3 ]]; then
     3="Desktop/$1" 
   fi
 
