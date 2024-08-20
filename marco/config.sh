@@ -20,20 +20,15 @@ git config --global push.default simple
 
 #PROJECTS
 sync () {
-  if [[ ! $2 ]]; then
-    2="github"
-  fi
-  if [[ ! $3 ]]; then
-    3="Desktop/$1" 
-  fi
+  HOST=${2:=github}
+  FOLDER=${3:=Desktop/$1}
 
-  echo "******* $2@$1 $3 *********"
+  echo "******* $HOST@$1 $FOLDER *********"
 
   if [ ! -d $FOLDER ]; then
-    git clone git@$2.com:marcodpt/$1.git $HOME/$3
+    git clone git@$HOST.com:marcodpt/$1.git $HOME/$FOLDER
   else
-    cd $FOLDER
-    git pull
+    cd $FOLDER && git pull
   fi
 }
 
