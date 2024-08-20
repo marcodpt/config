@@ -11,3 +11,4 @@ apt install vim-gtk3 -y
 apt install pass -y
 apt install sqlite3 -y
 apt install claws-mail -y
+apt install ripgrep -y

@@ -39,15 +39,16 @@ wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/config
 
 ## SSH
 ### Import private key 
- ```
- mkdir -p ~/.ssh
- cp path/to/key ~/.ssh/id_rsa
- ```
+```
+mkdir -p ~/.ssh
+cp path/to/key ~/.ssh/id_rsa
+chmod go-rw ~/.ssh/id_rsa
+```
 
 ### Generate new key
- ```
+```
 ssh-keygen -t rsa -b 4096 -C "user@email.com" -f ~/.ssh/id_rsa
- ```
+```
 
 ## GPG
 
