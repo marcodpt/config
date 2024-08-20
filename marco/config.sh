@@ -1,21 +1,15 @@
 #!/bin/bash
 
-if [[ $EUID -eq 0 ]]; then
-  echo "You must be a non root user" 2>&1
-  exit 1
-fi
+#TMUX
+wget -q -O ~/.tmux.conf \
+  https://raw.githubusercontent.com/marcodpt/config/main/marco/tmux.conf
 
-TARGET="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ln -sf "$TARGET/tmux.conf" ~/.tmux.conf
-ln -sf "$TARGET/vimrc" ~/.vimrc
+#VIM
+wget -q -O ~/.vimrc \
+  https://raw.githubusercontent.com/marcodpt/config/main/marco/vimrc
 
 mkdir -p ~/.vim/swapfiles
 mkdir -p ~/.vim/session
-
-LINE=$(head -1 "$TARGET/bashrc")
-if ! grep -qF "$LINE" ~/.bashrc; then
-  cat "$TARGET/bashrc" >> ~/.bashrc
-fi
 
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -24,6 +18,22 @@ fi
 
 vim +PlugInstall +PlugUpdate +PlugClean! +qall
 
+#BASH
+LINE="# personal configuration"
+if ! grep -qF "$LINE" ~/.bashrc; then
+  echo $LINE >> ~/.bashrc
+  wget -q -O - \
+    https://raw.githubusercontent.com/marcodpt/config/main/marco/bashrc \
+    >> ~/.bashrc
+fi
+
+#GIT
 git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
 git config --global push.default simple
+
+#RUST
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+#DENO
+curl -fsSL https://deno.land/install.sh | sh
