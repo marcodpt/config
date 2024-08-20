@@ -47,4 +47,4 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-vim +PlugInstall +PlugUpdate +PlugClean! +qall > /dev/null
+vim -T dumb -n -i NONE -es -S <(echo 'PluginInstall PlugUpdate PlugClean! qall')
