@@ -58,6 +58,7 @@ sync pass gitlab .password-store
 #RUST
 if [ ! -d ~/.rustup ]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  rustup target add x86_64-unknown-linux-musl
 fi
 
 #DENO
