@@ -1,20 +1,8 @@
 #!/bin/bash
 
-#TMUX
-wget -q -O ~/.tmux.conf \
-  https://raw.githubusercontent.com/marcodpt/config/main/marco/tmux.conf
-
-#BASH
-LINE="# personal configuration"
-if ! grep -qF "$LINE" ~/.bashrc; then
-  echo $LINE >> ~/.bashrc
-  wget -q -O - \
-    https://raw.githubusercontent.com/marcodpt/config/main/marco/bashrc \
-    >> ~/.bashrc
-fi
+ssh-add
 
 #GIT
-ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
 git config --global push.default simple
@@ -45,7 +33,6 @@ sync () {
     cd $FOLDER && git pull
   fi
 }
-ssh-add
 
 sync config
 sync minirps
@@ -59,16 +46,17 @@ sync rest gitlab
 sync auto gitlab
 sync pass gitlab .password-store
 
-#RUST
-if [ ! -d ~/.rustup ]; then
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  rustup target add x86_64-unknown-linux-musl
-fi
+#TMUX
+wget -q -O ~/.tmux.conf \
+  https://raw.githubusercontent.com/marcodpt/config/main/marco/tmux.conf
 
-#DENO
-if [ ! -d ~/.deno ]; then
-  curl -fsSL https://deno.land/install.sh | sh
-  echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.bashrc
+#BASH
+LINE="# personal configuration"
+if ! grep -qF "$LINE" ~/.bashrc; then
+  echo $LINE >> ~/.bashrc
+  wget -q -O - \
+    https://raw.githubusercontent.com/marcodpt/config/main/marco/bashrc \
+    >> ~/.bashrc
 fi
 
 #VIM
@@ -85,4 +73,16 @@ fi
 
 if [ $0 != "bash" ]; then
   vim +PlugInstall +PlugUpdate +PlugClean! +qall
+fi
+
+#RUST
+if [ ! -d ~/.rustup ]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  rustup target add x86_64-unknown-linux-musl
+fi
+
+#DENO
+if [ ! -d ~/.deno ]; then
+  curl -fsSL https://deno.land/install.sh | sh
+  echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.bashrc
 fi
