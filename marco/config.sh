@@ -14,6 +14,7 @@ if ! grep -qF "$LINE" ~/.bashrc; then
 fi
 
 #GIT
+ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
 git config --global push.default simple
