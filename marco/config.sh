@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ssh-add
-
 #GIT
 git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
