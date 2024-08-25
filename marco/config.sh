@@ -17,6 +17,8 @@ fi
 git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
 git config --global push.default simple
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_rsa.pub
 
 #PROJECTS
 sync () {
@@ -41,6 +43,7 @@ sync () {
     cd $FOLDER && git pull
   fi
 }
+ssh-add
 
 sync config
 sync minirps
@@ -50,7 +53,6 @@ sync tint
 sync paw
 sync hippo
 sync respect
-sync apitest
 sync rest gitlab
 sync auto gitlab
 sync pass gitlab .password-store
