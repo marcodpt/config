@@ -28,6 +28,7 @@ wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/instal
 ```
 
 ```
+ssh-add
 wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/config.sh | bash
 ```
 
