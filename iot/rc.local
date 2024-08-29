@@ -2,7 +2,4 @@
 
 /etc/iot/startup.sh >> "/etc/iot/startup.log" 2>&1
 
-apt update
-apt upgrade -y
-apt autoremove -y
 exit 0
