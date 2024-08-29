@@ -28,6 +28,7 @@ wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/instal
 ```
 
 ```
+ssh-add
 wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/config.sh | bash
 ```
 
@@ -43,6 +44,7 @@ wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/config
 mkdir -p ~/.ssh
 cp path/to/key ~/.ssh/id_rsa
 chmod go-rw ~/.ssh/id_rsa
+ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 ```
 
 ### Generate new key
