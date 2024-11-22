@@ -3,3 +3,4 @@ if command -v tmux>/dev/null; then
 fi
 
 export EDITOR=vim
+export PATH="$HOME/bin:$PATH"

@@ -8,58 +8,20 @@ git config --global gpg.format ssh
 git config --global user.signingkey ~/.ssh/id_rsa.pub
 git config --global commit.gpgsign true
 
-#PROJECTS
-sync () {
-  if [ -z $2 ]; then
-    HOST=github
-  else
-    HOST=$2
-  fi
-
-  if [ -z $3 ]; then
-    FOLDER=Desktop/$1
-  else
-    FOLDER=$3
-  fi
-  FOLDER=$HOME/$FOLDER
-
-  echo "******* $HOST@$1 $FOLDER *********"
-
-  if [ ! -d $FOLDER ]; then
-    git clone git@$HOST.com:marcodpt/$1.git $FOLDER
-  else
-    cd $FOLDER && git pull
-  fi
-}
-
-sync config
-sync minirps
-sync rawprinter
-sync serialscale
-sync tint
-sync paw
-sync hippo
-sync respect
-sync rest gitlab
-sync auto gitlab
-sync pass gitlab .password-store
+SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
 #TMUX
-wget -q -O ~/.tmux.conf \
-  https://raw.githubusercontent.com/marcodpt/config/main/marco/tmux.conf
+ln -sf $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
 
 #BASH
 LINE="# personal configuration"
 if ! grep -qF "$LINE" ~/.bashrc; then
   echo $LINE >> ~/.bashrc
-  wget -q -O - \
-    https://raw.githubusercontent.com/marcodpt/config/main/marco/bashrc \
-    >> ~/.bashrc
+  cat $SCRIPT_DIR/bashrc >> $HOME/.bashrc
 fi
 
 #VIM
-wget -q -O ~/.vimrc \
-  https://raw.githubusercontent.com/marcodpt/config/main/marco/vimrc
+ln -sf $SCRIPT_DIR/vimrc $HOME/.vimrc
 
 mkdir -p ~/.vim/swapfiles
 mkdir -p ~/.vim/session
@@ -80,7 +42,19 @@ if [ ! -d ~/.rustup ]; then
 fi
 
 #DENO
-if [ ! -d ~/.deno ]; then
-  curl -fsSL https://deno.land/install.sh | sh
-  echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.bashrc
+#if [ ! -d ~/.deno ]; then
+  #curl -fsSL https://deno.land/install.sh | sh
+  #echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.bashrc
+#fi
+
+#PHP AND SCRIPTS
+if [ ! -d $HOME/bin ]; then
+  mkdir $HOME/bin 
+  ln -sf $SCRIPT_DIR/php $HOME/bin/php
+  ln -sf $SCRIPT_DIR/update $HOME/bin/update
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp $HOME/bin/fphp
+  curl -sS https://getcomposer.org/installer > /tmp/installer.php
+  $HOME/bin/php /tmp/installer.php --install-dir=$HOME/bin --filename=composer
+  rm /tmp/installer.php
 fi
