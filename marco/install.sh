@@ -1,5 +1,10 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+ln -sf $SCRIPT_DIR/update /usr/bin/update
+
+update
+
 apt install tmux -y
 apt install curl -y
 apt install git -y
