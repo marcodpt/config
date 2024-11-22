@@ -4,9 +4,9 @@
 git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
 git config --global push.default simple
-git config --global gpg.format ssh
-git config --global user.signingkey ~/.ssh/id_rsa.pub
-git config --global commit.gpgsign true
+#git config --global gpg.format ssh
+#git config --global user.signingkey ~/.ssh/id_rsa.pub
+#git config --global commit.gpgsign true
 
 SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
