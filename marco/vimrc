@@ -16,6 +16,7 @@ set sessionoptions-=buffers
 set guifont=Monospace\ 18
 set directory=$HOME/.vim/swapfiles/
 set colorcolumn=80
+tnoremap <C-z> <C-\><C-n>
 
 syntax enable
 
@@ -27,12 +28,9 @@ call plug#begin()
     Plug 'scrooloose/nerdcommenter'
     Plug 'alvan/vim-closetag'
     Plug 'tpope/vim-fugitive'
-    Plug 'bling/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'pangloss/vim-javascript'
     Plug 'Glench/Vim-Jinja2-Syntax'
     Plug 'cespare/vim-toml'
-    Plug 'samueljoli/hurl.nvim'
 call plug#end()
 
 let g:omni_sql_no_default_maps = 1
@@ -41,8 +39,5 @@ let g:startify_enable_unsafe = 1
 let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks'] 
 let g:seoul256_background = 234
 let g:closetag_filenames = "*.htm,*.html,*.xhtml,*.phtml"
-let g:airline_theme='zenburn'
-let g:syntastic_python_python_exec = 'python3'
-let g:syntastic_python_checkers = ['python']
 
 silent! colorscheme seoul256

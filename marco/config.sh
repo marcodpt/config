@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ $(id -u) -eq 0 ]]; then
+  echo "Must be run as non-root user!"
+  exit 1
+fi
+
+mkdir -p $HOME/bin 
+mkdir -p $HOME/dev
+
 #GIT
 git config --global user.email "marcodpt@protonmail.com"
 git config --global user.name "Marco Di Pillo Tomic"
@@ -10,14 +18,10 @@ git config --global push.default simple
 
 SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
-#TMUX
-ln -sf $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
-
 #BASH
-LINE="# personal configuration"
+LINE="source $SCRIPT_DIR/bashrc"
 if ! grep -qF "$LINE" ~/.bashrc; then
-  echo $LINE >> ~/.bashrc
-  cat $SCRIPT_DIR/bashrc >> $HOME/.bashrc
+  echo $LINE >> $HOME/.bashrc
 fi
 
 #VIM
@@ -39,22 +43,4 @@ fi
 if [ ! -d ~/.rustup ]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   rustup target add x86_64-unknown-linux-musl
-fi
-
-#DENO
-#if [ ! -d ~/.deno ]; then
-  #curl -fsSL https://deno.land/install.sh | sh
-  #echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.bashrc
-#fi
-
-#PHP AND SCRIPTS
-if [ ! -d $HOME/bin ]; then
-  mkdir $HOME/bin 
-  ln -sf $SCRIPT_DIR/php $HOME/bin/php
-  ln -sf $SCRIPT_DIR/update $HOME/bin/update
-  curl https://frankenphp.dev/install.sh | sh
-  mv frankenphp $HOME/bin/fphp
-  curl -sS https://getcomposer.org/installer > /tmp/installer.php
-  $HOME/bin/php /tmp/installer.php --install-dir=$HOME/bin --filename=composer
-  rm /tmp/installer.php
 fi

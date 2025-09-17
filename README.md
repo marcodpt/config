@@ -34,9 +34,8 @@ wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/config
 
  - `install.sh` install the packages I use to work.
  - `config.sh` set my preferences.
- - `bashrc` put `vim` as the default editor and always use `tmux` in the terminal.
+ - `bashrc` put `vim` as the default editor
  - `vimrc` these are my `vim` settings.
- - `tmux.conf` these are my `tmux` settings.
 
 ## SSH
 ### Import private key 
@@ -87,4 +86,37 @@ gpg -K
 ```
 sudo rngd -r /dev/urandom
 gpg --gen-key
+```
+
+## Docker
+
+### List all images
+```
+docker images
+```
+
+### List all process
+```
+docker ps -a
+```
+
+### Create a process from a image
+```
+docker run --name {name} -p 8080:80 -v .:/data/{name} -it ubuntu:24.04 /bin/bash
+```
+
+### commit container
+```
+docker commit {name}
+```
+
+### reconnet
+```
+docker restart {name}
+docker attach {name}
+```
+
+### Remove image
+```
+docker rmi [image]
 ```
