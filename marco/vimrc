@@ -16,6 +16,8 @@ set sessionoptions-=buffers
 set guifont=Monospace\ 18
 set directory=$HOME/.vim/swapfiles/
 set colorcolumn=80
+set laststatus=2
+set statusline=%f
 tnoremap <C-z> <C-\><C-n>
 
 syntax enable
