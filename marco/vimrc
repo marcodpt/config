@@ -4,8 +4,6 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 set clipboard=unnamedplus
-set number
-set relativenumber
 set foldmethod=indent
 set foldlevel=99
 set hlsearch
@@ -29,7 +27,6 @@ call plug#begin()
     Plug 'mhinz/vim-startify'
     Plug 'scrooloose/nerdcommenter'
     Plug 'alvan/vim-closetag'
-    Plug 'tpope/vim-fugitive'
     Plug 'pangloss/vim-javascript'
     Plug 'Glench/Vim-Jinja2-Syntax'
     Plug 'cespare/vim-toml'
