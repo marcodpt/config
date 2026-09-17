@@ -20,23 +20,6 @@ Restart server
 sudo /etc/iot/startup.sh
 ```
 
-## marco
-My personal settings.
-
-```
-wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/install.sh | sudo bash
-```
-
-```
-ssh-add
-wget -q -O - https://raw.githubusercontent.com/marcodpt/config/main/marco/config.sh | bash
-```
-
- - `install.sh` install the packages I use to work.
- - `config.sh` set my preferences.
- - `bashrc` put `vim` as the default editor
- - `vimrc` these are my `vim` settings.
-
 ## SSH
 ### Import private key 
 ```
