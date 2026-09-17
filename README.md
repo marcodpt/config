@@ -70,36 +70,3 @@ gpg -K
 sudo rngd -r /dev/urandom
 gpg --gen-key
 ```
-
-## Docker
-
-### List all images
-```
-docker images
-```
-
-### List all process
-```
-docker ps -a
-```
-
-### Create a process from a image
-```
-docker run --name {name} -p 8080:80 -v .:/data/{name} -it ubuntu:24.04 /bin/bash
-```
-
-### commit container
-```
-docker commit {name}
-```
-
-### reconnet
-```
-docker restart {name}
-docker attach {name}
-```
-
-### Remove image
-```
-docker rmi [image]
-```
